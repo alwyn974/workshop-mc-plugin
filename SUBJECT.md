@@ -118,3 +118,63 @@ Exemple depuis la console :
 ```
 
 #hint(Documentation spigot pour créer une commande : [lien](https://www.spigotmc.org/wiki/create-a-simple-command/))
+
+## Modification des drops 
+
+Si on faisait un miniplugin uhc ? Pour cela il faudra utiliser un event qui est appelé lorsque :
+
+- Un block est cassé
+- Un mob est tué (passif/hostile)
+- Un craft est réalisé
+
+#hint(Liste des events spigots: [lien](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/class-use/Event.html))
+
+### Drop des blocks
+
+Pour chaque block de minerais :
+
+- Changer le drop du charbon pour donner des torches (4) et un de charbon
+- Changer les drops de chaque minerai pour donner son item cuit
+- Donner une quantité aléatoire d'xp
+
+Pour les blocks de gravier et de feuille : 
+
+- Si un block de gravier est cassé, dropper un `Flint` avec un pourcentage de chance de 50%
+- Si un block de feuile d'arbre est cassé, dropper une `Golden Apple` avec un pourcentage de chance de 1%
+
+Exemple:
+```
+Minerais de charbon => 4 torches + un charbon
+Minerais de fer => 1 fer en lingot
+Minerais d'or => 1 or en lingot
+
+Gravier => 50% de chances de drop un `Flint`
+Feuille d'arbre => 1% de chances de drop une `Golden Apple`
+```
+
+#hint(Ne pas oublier d'annuler l'event, sinon vous aurez encore l'ancien drop)
+
+### Drop des mobs
+
+Pour chaque mob passif tué (vache, poulet, cochon, lapin) :
+
+- Changer le drop de chaque mob passif pour donner son item cuit directement
+
+#hint(Ne pas oublier de clear la liste des drops)
+
+### Modification des crafts
+
+Vous allez devoir changer le résultat d'un craft lorsqu'on essayera de craft, n'importe quel outils ou armures.
+Ceux-ci devront être transformés, pour y ajouter des enchantements 
+
+Exemple:
+```
+Armure de cuir => Armure de cuir avec un enchantement de protection de niveau 4
+Armure de fer => Armure de fer avec un enchantement de protection de niveau 3
+Armure de diamant => Armure de diamant avec un enchantement de protection de niveau 2
+
+Outils en pierre => Outils en pierre avec un enchantement d'`efficiency` de niveau 5
+Outils en or => Outils en or avec un enchantement d'`efficiency` de niveau 4
+Outils en fer => Outils en fer avec un enchantement d'`efficiency` de niveau 3
+Outils en diamant => Outils en diamant avec un enchantement d'`efficiency` de niveau 2
+```
