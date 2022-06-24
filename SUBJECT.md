@@ -85,7 +85,7 @@ Lorsqu'un joueur rejoindra le serveur il faudra afficher un nouveau message que 
 Exemple: `[+] alwyn974 - 1/20`
 <br>
 Si vous voulez ajouter des couleurs au message vous pouvez utiliser la classe `ChatColor` de `org.bukkit.ChatColor` ou utiliser les colors codes.
-<br>
+
 #hint([Color Codes](https://minecraft.fandom.com/fr/wiki/Codes_de_mise_en_forme). Javadoc de [ChatColor](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html))
 
 ### Modifier le message de déconnexion d'un joueur
@@ -95,5 +95,26 @@ Lorsqu'un joueur quittera le serveur il faudra afficher un nouveau que `PlayerNa
 <br>
 Exemple: `[-] alwyn974 - 0/20`
 
+#hint(Avec de la couleur, c'est toujours mieux !)
+
 ## Création d'une commande simple
 
+Pour créer une commande, il faut créer une classe qui implémente `CommandExecutor` de `org.bukkit.command` et surcharger la méthode `boolean onCommand`.
+<br>
+Créez une classe `EpitechCommand` dans le package `command` qui hérite de `CommandExecutor` et surcharge la méthode.
+La commande devra :
+
+- Lorsqu'elle est exécutée répondre à l'utilisateur avec le message `Marvin -42` en cyan
+- Elle devra être utilisable par tout le monde
+- Elle devra avoir aucune permission
+- Lorsque l'on fait /help epitech, il faudra que la description soit: `Vous donne -42 de la part de Marvin :)`
+
+Exemple depuis la console :
+
+```log
+[12:21:39 INFO]: --------- Help: /epitech -----------------------
+[12:21:39 INFO]: Description: Vous donne -42 de la part de Marvin
+[12:21:39 INFO]: Usage: /epitech
+```
+
+#hint(Documentation spigot pour créer une commande : [lien](https://www.spigotmc.org/wiki/create-a-simple-command/))
