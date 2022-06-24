@@ -44,7 +44,7 @@ Dans chacune des méthodes ajouter simplement un message dans la console.
 
 ### Création du fichier `plugin.yml`
 
-Dans le dossier `src/resources` créez le fichier `plugin.yml` avec le contenu suivant :
+Dans le dossier `src/main/resources` créez le fichier `plugin.yml` avec le contenu suivant :
 
 ```yml
 name: Plugin Name
@@ -86,7 +86,10 @@ Exemple: `[+] alwyn974 - 1/20`
 <br>
 Si vous voulez ajouter des couleurs au message vous pouvez utiliser la classe `ChatColor` de `org.bukkit.ChatColor` ou utiliser les colors codes.
 
-#hint([Color Codes](https://minecraft.fandom.com/fr/wiki/Codes_de_mise_en_forme). Javadoc de [ChatColor](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html))
+#hint([Color Codes](https://minecraft.fandom.com/fr/wiki/Codes_de_mise_en_forme). 
+Javadoc de [ChatColor](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html))
+
+#warn(Attention, pour utiliser les colors code, il faudra quand même utiliser la méthode qui permet de les traduires et qui provient de `ChatColor`. Sinon il faudra utiliser le symbol **§**)
 
 ### Modifier le message de déconnexion d'un joueur
 
@@ -179,3 +182,66 @@ Outils en or => Outils en or avec un enchantement d'`efficiency` de niveau 4
 Outils en fer => Outils en fer avec un enchantement d'`efficiency` de niveau 3
 Outils en diamant => Outils en diamant avec un enchantement d'`efficiency` de niveau 2
 ```
+
+## Création d'un fichier de config
+
+Pour créer un fichier de config, il suffit de créer notre fichier `config.yml` qu'on mettra dans le dossier `src/main/resources`.
+Dans le fichier `config.yml` ajouter une ligne `motd` qui contiendra le message de bienvenue.
+<br>
+Dans votre classe qui hérite de `JavaPlugin` il faudra dans le `onEnable` ajouter un appel à la méthode `saveDefaultConfig` pour que notre configuration soit créer au premier lancement du plugin. #br
+
+Maintenant envoyez ce `message of the day (motd)` au joueur lorsqu'il se connecte. #br
+
+Pour récupérer plus facilement la configuration du plugin, créez un singleton de votre classe qui hérite de `JavaPlugin`.
+
+#hint(Qu'est-ce qu'un singleton ? [Lien](https://refactoring.guru/fr/design-patterns/singleton))
+
+#hint(Pour récupérer la configuration en dehors de la classe qui hérite de `JavaPlugin`, il faudra utiliser la méthode `getConfig` de `org.bukkit.plugin.Plugin`)
+
+#hint(Documentation spigot sur les fichiers de configuration : [lien](https://www.spigotmc.org/wiki/creating-a-config-file/))
+
+## Commande /spawn et /setspawn
+
+### Commande /spawn
+
+On va ajouter une catégorie à notre fichier `config.yml`
+
+```yml
+spawn:
+  world: world # le monde dans lequel est le spawn
+  x: 42 # la position x du spawn
+  y: 84 # la position y du spawn
+  z: 42 # la position z du spawn
+```
+
+Vous allez devoir créer une commande `/spawn` qui va permettre de téléporter le joueur au spawn en fonction de la configuration.
+Créez une classe `SpawnCommand` qui implémentera `CommandExecutor` et qui surcharge la méthode `onCommand`
+
+Pour cette commande, il faudra :
+
+- Vérifier que c'est bien un joueur qui execute la commande (`Player` de `org.bukkit.entity`)
+- Récupérer les coordonnées du spawn dans la configuration
+- Récupérer le monde dans la configuration
+- Téléporter le joueur au spawn
+- Afficher un message au joueur
+
+#warn(Vérifiez aussi si la configuration est correcte, est qu'un spawn existe bien)
+
+#hint(Noubliez pas d'ajouter la commande au `plugin.yml`)
+
+#newpage
+### Command /setspawn
+
+Créez une classe `SetSpawnComamnd` qui implémentera `CommandExecutor` et qui surcharge la méthode `onCommand`
+
+Pour cette commande, il faudra :
+
+- Vérifier que c'est bien un joueur qui execute la commande (`Player` de `org.bukkit.entity`)
+- Modifier la configuration avec les coordonnées du joueur
+- Afficher un message au joueur
+
+Si vous avez bien fait les deux commandes vous pouvez maintenant faire un `/spawn` et `/setspawn`
+
+#hint(Noubliez pas d'ajouter la commande au `plugin.yml`)
+
+#hint(Pensez aussi à appeler la méthode `saveConfig` de `JavaPlugin` sinon la configuration sera inchangée)
