@@ -119,7 +119,7 @@ Exemple depuis la console :
 
 #hint(Documentation spigot pour créer une commande : [lien](https://www.spigotmc.org/wiki/create-a-simple-command/))
 
-## Modification des drops 
+## Modification des drops avec les Events
 
 Si on faisait un miniplugin uhc ? Pour cela il faudra utiliser un event qui est appelé lorsque :
 
@@ -164,14 +164,15 @@ Pour chaque mob passif tué (vache, poulet, cochon, lapin) :
 
 ### Modification des crafts
 
-Vous allez devoir changer le résultat d'un craft lorsqu'on essayera de craft, n'importe quel outils ou armures.
+Vous allez devoir changer le résultat d'un craft lorsqu'on essayera de craft un item.
 Ceux-ci devront être transformés, pour y ajouter des enchantements 
 
 Exemple:
 ```
 Armure de cuir => Armure de cuir avec un enchantement de protection de niveau 4
 Armure de fer => Armure de fer avec un enchantement de protection de niveau 3
-Armure de diamant => Armure de diamant avec un enchantement de protection de niveau 2
+Armure en or => Armure en or avec un enchantement de protection de niveau 2
+Armure de diamant => Armure de diamant avec un enchantement de protection de niveau 1
 
 Outils en pierre => Outils en pierre avec un enchantement d'`efficiency` de niveau 5
 Outils en or => Outils en or avec un enchantement d'`efficiency` de niveau 4
