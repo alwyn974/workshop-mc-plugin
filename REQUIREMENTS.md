@@ -106,6 +106,7 @@ services:
       - ./server:/data
 ```
 
+Créez un dossier **server** dans le dossier du projet.
 Pour lancer le serveur il faudra simplement faire `docker-compose up -d` et ensuite faire `docker attach mc` pour pouvoir avoir une console où l'on peut entrer des commandes
 Pour redémarrer le serveur faites simplement `docker-compose restart`
 
