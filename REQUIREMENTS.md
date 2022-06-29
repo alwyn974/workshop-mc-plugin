@@ -111,6 +111,8 @@ Pour redémarrer le serveur faites simplement `docker-compose restart`
 
 Si vous n'avez pas docker vous pourrez lancer un serveur Minecraft à la main.
 
+**N'oubliez pas de faire `docker-compose down` ou `docker stop mc` à la fin du workshop. Sinon vous aurez un docker avec 4Go de ram qui tourne tout le temps**
+
 ### Manuellement
 
 Pour lancer un serveur Minecraft manuellement, téléchargez : https://cdn.getbukkit.org/spigot/spigot-1.12.2.jar <br>
