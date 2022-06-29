@@ -6,7 +6,7 @@ Il vous faudra :
 - Le JDK 8
 - Intellij Idea (Community/Ultimate)
 - Docker (pour le serveur) ou lancer manuellement
-- Launcher Minecraft
+- Launcher Minecraft (ci-dessous)
 - Optionel : [Plugin Minecraft Development](https://plugins.jetbrains.com/plugin/8327-minecraft-development)
 
 ## Setup du Projet
@@ -87,7 +87,7 @@ services:
       - MEMORY=2G
       - VERSION=1.12
       - TYPE=SPIGOT
-      - OPS=${VOTRE_PSEUDO_MC} #CHANGEZ VOTRE PSEUDO ICI
+      - OPS=VOTRE_PSEUDO_MC #CHANGEZ VOTRE PSEUDO ICI
       - SPAWN_PROTECTION=0
       - VIEW_DISTANCE=16
       - SERVER_NAME=Spigot 1.12.2
