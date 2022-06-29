@@ -122,3 +122,5 @@ Pour lancer le serveur il faudra faire `java -Xmx2048M -jar spigot-1.12.2.jar` (
 ## Launcher Minecraft
 
 Si vous n'avez pas Minecraft Premium, vous pouvez utiliser ce launcher : https://tlauncher.org/en/#osselector
+
+Il vous faudra Minecraft **1.12.2**
