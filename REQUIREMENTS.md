@@ -1,5 +1,7 @@
 # Pré-requis
 
+- Créer un repository sur github pour le workshop (rendu obligatoire)
+
 ## Logiciels
 
 Il vous faudra :
@@ -65,7 +67,7 @@ processResources {
 }
 ```
 
-Ne pas oublier de recharger le projet gradle sur Intellij Idea. Pour cela à droite vous avez un onglet `gradle` avec un icon de reload
+Ne pas oublier de recharger le projet gradle sur Intellij Idea. Pour cela à droite vous avez un onglet `gradle` avec une icône de reload
 
 ## Serveur Minecraft
 
@@ -112,13 +114,14 @@ Pour redémarrer le serveur faites simplement `docker-compose restart`
 
 Si vous n'avez pas docker vous pourrez lancer un serveur Minecraft à la main.
 
-**N'oubliez pas de faire `docker-compose down` ou `docker stop mc` à la fin du workshop. Sinon vous aurez un docker avec 4Go de ram qui tourne tout le temps**
+**N'oubliez pas de faire `docker-compose down` ou `docker stop mc` à la fin du workshop. Sinon, vous aurez un docker avec 4Go de ram qui tourne tout le temps**
 
 ### Manuellement
 
 Pour lancer un serveur Minecraft manuellement, téléchargez : https://cdn.getbukkit.org/spigot/spigot-1.12.2.jar <br>
 Créez un nouveau dossier `server` contenant le fichier `spigot-1.12.2.jar` <br>
 Pour lancer le serveur il faudra faire `java -Xmx2048M -jar spigot-1.12.2.jar` (Xmx correspond à la mémoire maximum allouée au serveur)
+Si vous n'avez pas Minecraft premium, n'oubliez pas de mettre `online-mode=false` dans le fichier `server.properties`
 
 ## Launcher Minecraft
 
