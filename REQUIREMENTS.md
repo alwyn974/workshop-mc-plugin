@@ -1,6 +1,7 @@
 # Pré-requis
 
 - Créer un repository sur github pour le workshop (rendu obligatoire)
+- Connaître les bases de la programmation en Java (cf: [workshop-java](https://github.com/alwyn974/workshop-java))
 
 ## Logiciels
 
