@@ -19,7 +19,7 @@ version:		1.0
 
 ## Pré-requis
 
-Si vous n'avez pas déjà installé les outils nécessaires à ce workshop suivez les instructions situées ici : #br
+Si vous n'avez pas déjà installé les outils nécessaires à ce workshop, suivez les instructions situées ici : #br
 [https://github.com/alwyn974/workshop-mc-plugin/blob/master/REQUIREMENTS.md](https://github.com/alwyn974/workshop-mc-plugin/blob/master/REQUIREMENTS.md)
 
 ## Configuration
@@ -30,7 +30,7 @@ Pour pouvoir tester votre plugin, vous devez créer une task gradle, pour dépla
 Cette task aura pour nom `buildAndMove` devra dépendre de `build` et respecter les prérequis suivants :
 
 - Etre exécuté en dernier
-- Utiliser la task copy pour copier le plugin générer par le build dans le dossier `./server/plugins/`
+- Utiliser la task copy pour copier le plugin généré par le build dans le dossier `./server/plugins/`
 
 #hint(Task avec gradle [Script basique](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html), [Doc de la classe Task](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html))
 
@@ -60,6 +60,7 @@ Remplacez le `main` par votre classe qui hérite de `JavaPlugin` et le `name` pa
 ### Build
 
 Pour tester votre plugin, vous devez exécuter la task gradle `buildAndMove` et ensuite lancer le docker-compose.
+(Lancez `buildAndMove` depuis l'onglet gradle à droite, ou en exécutant `./gradlew buildAndMove` dans le dossier du projet)
 
 Si votre plugin est reconnu dans la console vous aurez quelque chose comme ceci :
 
@@ -89,7 +90,7 @@ Si vous voulez ajouter des couleurs au message vous pouvez utiliser la classe `C
 #hint([Color Codes](https://minecraft.fandom.com/fr/wiki/Codes_de_mise_en_forme). 
 Javadoc de [ChatColor](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html))
 
-#warn(Attention, pour utiliser les colors code, il faudra quand même utiliser la méthode qui permet de les traduires et qui provient de `ChatColor`. Sinon il faudra utiliser le symbol **§**)
+#warn(Attention, pour utiliser les colors code, il faudra quand même utiliser la méthode qui permet de les traduires et qui provient de `ChatColor`. Sinon, il faudra utiliser le symbol **§**)
 
 ### Modifier le message de déconnexion d'un joueur
 
@@ -190,7 +191,7 @@ Dans le fichier `config.yml` ajouter une ligne `motd` qui contiendra le message 
 <br>
 Dans votre classe qui hérite de `JavaPlugin` il faudra dans le `onEnable` ajouter un appel à la méthode `saveDefaultConfig` pour que notre configuration soit créer au premier lancement du plugin. #br
 
-Maintenant envoyez ce `message of the day (motd)` au joueur lorsqu'il se connecte. #br
+Maintenant, envoyez ce `message of the day (motd)` au joueur lorsqu'il se connecte. #br
 
 Pour récupérer plus facilement la configuration du plugin, créez un singleton de votre classe qui hérite de `JavaPlugin`.
 
@@ -245,3 +246,12 @@ Si vous avez bien fait les deux commandes vous pouvez maintenant faire un `/spaw
 #hint(Noubliez pas d'ajouter la commande au `plugin.yml`)
 
 #hint(Pensez aussi à appeler la méthode `saveConfig` de `JavaPlugin` sinon la configuration sera inchangée)
+
+# Pour approfondir vos connaissances
+
+- [Spigot API](https://hub.spigotmc.org/javadocs/spigot/)
+- [Spigot Wiki](https://www.spigotmc.org/wiki/spigot/)
+
+# Merci
+
+Merci d'avoir suivi ce workshop, n'hésitez pas à me contacter si vous avez des questions ou des remarques.
