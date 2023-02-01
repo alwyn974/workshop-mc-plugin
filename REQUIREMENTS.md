@@ -7,7 +7,7 @@
 
 Il vous faudra :
 - Le JDK 8
-- Intellij Idea (Community/Ultimate)
+- Intellij Idea Community (ou Ultimate mais il faut la license)
 - Docker (pour le serveur) ou lancer manuellement
 - Launcher Minecraft (ci-dessous)
 - Optionel : [Plugin Minecraft Development](https://plugins.jetbrains.com/plugin/8327-minecraft-development)
@@ -15,7 +15,7 @@ Il vous faudra :
 ## Setup du Projet
 
 Création du Projet avec Intellij Idea, pour cela faites un nouveau projet en utilisant Gradle.
-Vous allez devoir modifier le build.gradle pour celui-ci :
+Vous allez devoir modifier le **build.gradle** pour celui-ci :
 
 ```groovy
 plugins {
@@ -123,6 +123,14 @@ Pour lancer un serveur Minecraft manuellement, téléchargez : https://cdn.getbu
 Créez un nouveau dossier `server` contenant le fichier `spigot-1.12.2.jar` <br>
 Pour lancer le serveur il faudra faire `java -Xmx2048M -jar spigot-1.12.2.jar` (Xmx correspond à la mémoire maximum allouée au serveur)
 Si vous n'avez pas Minecraft premium, n'oubliez pas de mettre `online-mode=false` dans le fichier `server.properties`
+
+#### En terminal
+
+```bash
+mkdir server && cd server
+wget https://cdn.getbukkit.org/spigot/spigot-1.12.2.jar # ou curl -LO https://cdn.getbukkit.org/spigot/spigot-1.12.2.jar
+java -Xmx2048M -jar spigot-1.12.2.jar 
+```
 
 ## Launcher Minecraft
 
