@@ -121,6 +121,7 @@ Si vous n'avez pas docker vous pourrez lancer un serveur Minecraft à la main.
 
 Pour lancer un serveur Minecraft manuellement, téléchargez : https://cdn.getbukkit.org/spigot/spigot-1.12.2.jar <br>
 Créez un nouveau dossier `server` contenant le fichier `spigot-1.12.2.jar` <br>
+Créez un fichier eula.txt avec dedans `eula=true`
 Pour lancer le serveur il faudra faire `java -Xmx2048M -jar spigot-1.12.2.jar` (Xmx correspond à la mémoire maximum allouée au serveur)
 Si vous n'avez pas Minecraft premium, n'oubliez pas de mettre `online-mode=false` dans le fichier `server.properties`
 
@@ -129,6 +130,8 @@ Si vous n'avez pas Minecraft premium, n'oubliez pas de mettre `online-mode=false
 ```bash
 mkdir server && cd server
 wget https://cdn.getbukkit.org/spigot/spigot-1.12.2.jar # ou curl -LO https://cdn.getbukkit.org/spigot/spigot-1.12.2.jar
+echo "eula=true" > eula.txt # Accept the eula
+echo "online-mode=false" > server.properties # Seulement si vous n'avez pas minecraft premium
 java -Xmx2048M -jar spigot-1.12.2.jar 
 ```
 
